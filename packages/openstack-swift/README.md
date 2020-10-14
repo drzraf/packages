@@ -12,13 +12,13 @@ This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkg
 * Instanciate the library in your script
 
 ```
-const swift = require('@adriantombu/openstack-swift').default.container(
+const swift = require('@adriantombu/openstack-swift').default.container({
   container: 'swift-container',
   username: 'swift-username',
   password: 'swift-password',
-  authUrl: 'swift-auth-url,
+  authUrl: 'swift-auth-url',
   region: 'swift-region'
-)
+})
 ```
 
 You can then find all the available methods in the pkgcloud documentation under the [Storage section](https://github.com/pkgcloud/pkgcloud#storage).
