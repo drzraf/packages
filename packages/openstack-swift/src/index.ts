@@ -47,7 +47,7 @@ export default class Swift {
   }
 
   async destroyContainer() {
-    const destroyContainer = promisify(this.client.destroyContainer)
+    const destroyContainer = promisify(this.client.destroyContainer.bind(this.client))
 
     try {
       return destroyContainer(this.container)
@@ -59,7 +59,7 @@ export default class Swift {
   }
 
   async getContainer() {
-    const getContainer = promisify(this.client.getContainer)
+    const getContainer = promisify(this.client.getContainer.bind(this.client))
 
     try {
       return getContainer(this.container)
@@ -71,7 +71,7 @@ export default class Swift {
   }
 
   async getContainerFiles() {
-    const getFiles = promisify(this.client.getFiles)
+    const getFiles = promisify(this.client.getFiles.bind(this.client))
 
     try {
       return getFiles(this.container)
@@ -95,7 +95,7 @@ export default class Swift {
   }
 
   async getFile(filename: string) {
-    const getFile = promisify(this.client.getFile)
+    const getFile = promisify(this.client.getFile.bind(this.client))
 
     try {
       return await getFile(this.container, filename)
@@ -170,7 +170,7 @@ export default class Swift {
   }
 
   async removeFile(filename: string) {
-    const removeFile = promisify(this.client.removeFile)
+    const removeFile = promisify(this.client.removeFile.bind(this.client))
 
     try {
       return removeFile(this.container, filename)
