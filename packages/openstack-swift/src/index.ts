@@ -9,10 +9,7 @@ export default class Swift {
   constructor(params: Params) {
     const options: pkgcloud.OpenstackProviderOptions = {
       provider: 'openstack',
-      username: params.username,
-      password: params.password,
-      authUrl: params.authUrl,
-      region: params.region,
+      ...params,
     }
 
     this.client = pkgcloud.storage.createClient(options)
@@ -20,13 +17,7 @@ export default class Swift {
   }
 
   static container(params: Params) {
-    return new this({
-      container: params.container,
-      username: params.username,
-      password: params.password,
-      authUrl: params.authUrl,
-      region: params.region,
-    })
+    return new this(params)
   }
 
   async getAllData() {
